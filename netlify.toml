@@ -1,0 +1,4 @@
+[[redirects]]
+  from = "/*"
+  to = "http://jpeg2pdf.herokuapp.com/"
+  status = 200
