@@ -1,5 +1,5 @@
 module.exports = {
     devServer: {
-        proxy: "https://jpeg2pdf.herokuapp.com/"
+        proxy: "http://jpeg2pdf.herokuapp.com/"
     }
 }
