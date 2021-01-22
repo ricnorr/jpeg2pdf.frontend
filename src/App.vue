@@ -22,7 +22,7 @@ export default {
   methods: {
     sendSingleFile: function (formData) {
       console.log(formData.get("file"));
-      axios.post("http://jpeg2pdf.herokuapp.com/convertFile", formData)
+      axios.post("https://jpeg2pdf.herokuapp.com/convertFile", formData)
           .then(
               () => {
                 this.fileIsReady = true;
@@ -30,7 +30,7 @@ export default {
           ).catch((error) => console.log(error));
     },
     downloadFile: function () {
-      axios.get("http://jpeg2pdf.herokuapp.com/convertFile/download",
+      axios.get("https://jpeg2pdf.herokuapp.com/convertFile/download",
           {
             responseType: 'arraybuffer',
             headers: {
