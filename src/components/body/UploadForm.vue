@@ -8,11 +8,6 @@
         <button v-on:click="submitFile()">Submit</button>
       </div>
     </div>
-    <template v-if="fileIsReady">
-      <div class="file-download">
-        <button v-on:click="downloadFile()">Download</button>
-      </div>
-    </template>
   </div>
 </template>
 
@@ -20,7 +15,6 @@
 <script>
 export default {
   name: "UploadForm",
-  props: ["fileIsReady"],
   data: function () {
     return {
       file: ""
@@ -33,16 +27,13 @@ export default {
         formData.append("file", x);
       }
       console.log(formData);
-      this.$root.$emit("PostFile", formData);
+      this.$root.$emit("sendFiles", formData);
     },
     handleFileSubmit: function (event) {
       this.file = []
       for (let file of event.target.files) {
         this.file.push(file);
       }
-    },
-    downloadFile: function () {
-      this.$root.$emit("downloadFile");
     }
   }
 }

@@ -20,9 +20,9 @@ export default {
     UploadForm
   },
   methods: {
-    sendSingleFile: function (formData) {
+    sendFiles: function (formData) {
       console.log(formData.get("file"));
-      axios.post("https://jpeg2pdf.herokuapp.com/convertFile", formData, {
+      axios.post("/convertFile", formData, {
         responseType: 'arraybuffer',
         headers: {
           'Content-Type': 'application/json',
@@ -39,31 +39,11 @@ export default {
                 link.click();
               }
           ).catch((error) => console.log(error));
-    },
-    downloadFile: function () {
-      axios.get("https://jpeg2pdf.herokuapp.com/convertFile/download",
-          {
-            responseType: 'arraybuffer',
-            headers: {
-              'Content-Type': 'application/json',
-              'Accept': 'application/pdf'
-            }
-          }).then((response) => {
-            const url = window.URL.createObjectURL(new Blob([response.data]));
-            const link = document.createElement('a');
-            link.href = url;
-            link.setAttribute('download', 'file.pdf'); //or any other extension
-            document.body.appendChild(link);
-            link.click();
-      }).catch((error) => console.log(error));
     }
   },
   beforeCreate() {
-    this.$root.$on("PostFile", (formData) => {
-      this.sendSingleFile(formData);
-    });
-    this.$root.$on("downloadFile", () => {
-      this.downloadFile();
+    this.$root.$on("sendFiles", (formData) => {
+      this.sendFiles(formData);
     });
   }
 }
