@@ -1,24 +1,15 @@
 <template>
   <div id="app">
-    <UploadForm :fileIsReady="fileIsReady"/>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
 
-import UploadForm from "@/components/body/UploadForm";
 import axios from "axios";
 
 export default {
   name: 'App',
-  data: function () {
-    return {
-      fileIsReady : null
-    }
-  },
-  components: {
-    UploadForm
-  },
   methods: {
     sendFiles: function (formData) {
       console.log(formData.get("file"));
