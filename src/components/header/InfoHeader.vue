@@ -2,7 +2,7 @@
     <header>
       <div class="info-header">
         <p>
-          Welcome to the jpeg2pdf.herokuapp.com made by Nikolai Korobeinikov.
+          Welcome to the jpeg2pdf.netlify.app made by Nikolai Korobeinikov.
           <br>
           <a href="https://github.com/ricnorr/jpeg2pdf.backend">Backend source (Spring)</a>
           <br>
